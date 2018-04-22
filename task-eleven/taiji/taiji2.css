@@ -1,0 +1,40 @@
+*{
+    margin: 0px; padding: 0px;
+}
+.taiji2{
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%)
+}
+.the-first{
+    width: 300px;
+    height: 150px;
+    border-style: solid;
+    border-color: red;
+    border-width: 2px 2px 152px 2px;
+    border-radius: 100%;
+    background-color: #eee;
+    position: relative;
+}
+.the-left{
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 60px;
+    border-color: red;
+    background-color: #eee;
+    border-radius: 100px;
+    position: absolute;
+    top:50%;left:0;
+}
+.the-right{
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 60px;
+    border-color: #eee;
+    background-color: red;
+    border-radius: 100px;
+    position: absolute;
+    top:50%; left:50%;
+}
