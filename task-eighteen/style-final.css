@@ -1,0 +1,23 @@
+#xxx{
+    background: green;
+    display: block;
+} 
+body{
+    margin: 0px;
+}
+.actions{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.actions > #brush{
+    display: none;              /*画笔隐藏*/
+}
+
+.actions.x > #brush{            /*actions处于x状态时，画笔出现*/
+    display: inline-block;
+}
+
+.actions.x > #eraser{
+    display: none;
+}

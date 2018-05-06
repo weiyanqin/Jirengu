@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #canvas {
+            background: red;
+            height: 100vh;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas">
+
+    </div>
+
+
+
+
+
+    <script>
+        var div = document.getElementById('canvas') //通过这个ID,获取div
+        var painting = false
+        //按下鼠标
+        div.onmousedown = function (a) {
+            // console.log(a)
+            painting = true
+            var x = a.clientX
+            var y = a.clientY
+            var divA = document.createElement('div')
+            divA.style = "width: 6px; height: 6px; background: black; border-radius: 3px;" +
+                "position: absolute; left: " + (x - 3) + "px;" + "top: " + (y - 3) + "px;" //???????????
+            div.appendChild(divA)
+        }
+        //动鼠标
+        div.onmousemove = function (a) {
+            // console.log(y)
+            if (painting) {
+                var x = a.clientX
+                var y = a.clientY
+                var divA = document.createElement('div')
+                divA.style = "width: 6px; height: 6px; background: black; border-radius: 3px;" +
+                    "position: absolute; left: " + (x - 3) + "px;" + "top: " + (y - 3) + "px;"
+                div.appendChild(divA)
+            }else{
+
+            }
+
+            // var x = a.clientX
+            // var y = a.clientY
+            // var divA = document.createElement('div')
+            // divA.style = "width: 6px; height: 6px; background: black; border-radius: 3px;" + 
+            // "position: absolute; left: "+(x-3) + "px;" +"top: "+(y-3)+"px;"     //???????????
+            // div.appendChild(divA)
+        }
+        //松开鼠标
+        div.onmouseup = function (z) {
+            // console.log(1)
+            painting = false
+        }
+    </script>
+</body>
+
+</html>
