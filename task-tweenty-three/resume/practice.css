@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #EFEFEF;
+    color: black;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+hr {
+    height: 0px;
+    border: none;
+    border-top: 1px solid #DEDEDE;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.topNavBar {
+    padding: 20px 0px 20px 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.5s;
+    color: #B7B7B7;
+}
+
+.topNavBar.sticky {
+    background: white;
+    padding: 10px 0;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    color: #3d4451;
+}
+
+.topNavBar-inner {
+    padding: 0px 16px;
+}
+
+.topNavBar nav>ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.topNavBar nav>ul>li {
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+    position: relative;
+}
+
+.topNavBar nav>ul>li>a {
+    font-size: 12px;
+    color: inherit;
+    font-weight: bold;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: block;
+    position: relative;
+    /* 用于li完全包含a */
+}
+
+.topNavBar nav {
+    float: right;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.topNavBar>a {
+    float: left;
+}
+
+.topNavBar nav>ul>li.active>a::after {
+    content: '';
+    display: disblock;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: menuSlide 0.3s;
+}
+
+@keyframes menuSlide {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%
+    }
+}
+
+.topNavBar .submenu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    color: #3d4451;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.topNavBar li.active>.submenu {
+    display: block;
+    animation: submenuSlide 0.3s;
+}
+
+@keyframes submenuSlide {
+    0%{
+        margin-right: 100%;
+    }
+    100%{
+        margin-right: 0;
+    }
+}
+
+.topNavBar .submenu>li {
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.topNavBar .logo {
+    font-size: 24px;
+    font-family: 'Arial Black';
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.topNavBar .logo .rs {
+    margin-right: 4px;
+    color: red;
+}
+
+.topNavBar .logo .card {
+    color: #9A9DA2;
+}
+
+.banner {
+    height: 515px;
+    background-image: url(./img/background.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.banner .mask {
+    height: 515px;
+    background-color: rgba(0, 0, 0, 0.6)
+}
+
+.userCard {
+    /* border: 1px solid red; */
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.userCard .welcome {
+    background-color: #E6686A;
+    color: white;
+    display: inline-block;
+    /* width: 70px;             
+    height: 29px;
+    line-height: 29px;
+    text-align: center; */
+    padding: 4.5px 15px;
+    /* 实际开发*/
+    line-height: 20px;
+    /* 防止代码在别的电脑上，行高显示会有变化！ */
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.userCard .welcome .triangle {
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #E6686A;
+    /* border-left-color: black; */
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%/* 上边缘距上面高度的100% */
+}
+
+.userCard .picture {
+    float: left;
+}
+
+.userCard .text {
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+
+.userCard .text hr {
+    margin: 20px 0;
+}
+
+.userCard .pictureAndText h1 {
+    margin-top: 18px;
+}
+
+.userCard .pictureAndText {
+    padding: 50px;
+}
+
+.userCard dl dt,
+.userCard dl dd {
+    float: left;
+    padding: 5px 0px;
+}
+
+.userCard dl dt {
+    width: 30%;
+    font-weight: bold;
+}
+
+.userCard dl dd {
+    width: 70%;
+    color: #9DA0A7
+}
+
+.userCard>footer.media {
+    background: #E6686A;
+    text-align: center;
+}
+
+.userCard>footer.media>a {
+    /* border: 1px solid black; */
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    line-height: 30px;
+    padding: 5px 0;
+    margin: 16px 0;
+}
+
+.userCard>footer.media>a:hover {
+    background: #CF5D5F;
+}
+
+.userCard svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+    vertical-align: top;
+}
+
+body>main {
+    margin-top: -380px;
+}
+
+body>main .downloadResume {
+    font-size: 14px;
+}
+
+.downloadResume-wrapper {
+    text-align: center;
+}
+
+body>main .downloadResume {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    border: 1px solid #CDCFD1;
+    display: inline-block;
+    background: #EFEFEF;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+    transition: box-shadow 0.3s;
+}
+
+body>main .downloadResume:hover {
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+.selfIntroduction {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: kai;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+section.skills,
+section.portfolio {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+section.skills>h2,
+section.portfolio>h2 {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+section.skills h3 {
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+
+section.skills>ol {
+    background: white;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    padding: 42px 50px 0;
+    margin-top: 30px;
+}
+
+section.skills>ol>li {
+    /* border: 1px solid red; */
+    float: left;
+    /* width:50%; */
+    width: 48%;
+    box-sizing: border-box;
+    /* padding-right: 30px; */
+}
+
+section.skills>ol>li:nth-child(even) {
+    float: right;
+}
+
+section.skills .progressBar {
+    height: 3px;
+    background: #FAE1E1;
+    border-radius: 2px;
+    margin: 4px 0 40px;
+}
+
+section.skills .progressBar .progress {
+    height: 100%;
+    background: #E6686A;
+    width: 78%;
+    border-radius: 2px;
+}
+
+section.portfolio {
+    text-align: center;
+}
+
+section.portfolio>nav {
+    text-align: center;
+}
+
+section.portfolio>nav>ol {
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    display: inline-block;
+    vertical-align: top;
+    /* 添加display:inline-block 必须添加 vertical-align：top; */
+}
+
+section.portfolio>nav>ol>li {
+    float: left;
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+section.portfolio>nav>ol>li:nth-child(1) {
+    margin-left: 0px;
+}
+
+section.portfolio>nav {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 32px;
+}
+
+section.portfolio>nav>.bar {
+    border: 1px solid red;
+    height: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+
+section.portfolio>nav .bar-inner {
+    height: 100%;
+    background: #E6686A;
+    /* width: 10%; */
+    border-radius: 2px;
+    /* margin-left: 100px; */
+    transition: all 0.3s;
+}
+
+section.portfolio>nav .bar.state-1 .bar-inner {
+    margin-left: 0;
+    width: 34px;
+}
+
+section.portfolio>nav .bar.state-2 .bar-inner {
+    margin-left: 50px;
+    width: 50px;
+}
+
+section.portfolio>nav .bar.state-3 .bar-inner {
+    margin-left: 114px;
+    width: 93px;
+}
+
+section.portfolio .works {
+    position: relative;
+    /* border: 1px solid red; */
+    height: 597px;
+}
+
+section.portfolio .works>.big {
+    position: absolute;
+}
+
+section.portfolio .works>.small {
+    position: absolute;
+}
+
+section.portfolio .works>.small {
+    position: absolute;
+}
