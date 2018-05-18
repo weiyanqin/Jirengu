@@ -86,7 +86,7 @@
     <div class="mask"></div>
   </div>
   <main>
-    <div id="siteAbout" class="userCard">
+    <div data-x id="siteAbout" class="userCard">
       <div class="pictureAndText clearfix">
         <div class="picture">
           <img src="./img/avatar.jpg" width="299" height="347" alt="头像">
@@ -136,7 +136,7 @@
       <br> 技能：前端开发，node.js开发
     </p>
   </main>
-  <section id="siteSkills" class="skills">
+  <section data-x id="siteSkills" class="skills">
     <h2>技能</h2>
     <ol class="clearfix">
       <li>
@@ -189,7 +189,7 @@
       </li>
     </ol>
   </section>
-  <section class="portfolio" id="siteWorks">
+  <section data-x class="portfolio" id="siteWorks">
     <h2>作品集</h2>
     <nav>
       <ol class="clearfix">
@@ -225,38 +225,99 @@
       </div>
     </div>
   </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
   <script>
-    setTimeout(function () {                                          //setTimeout  一段时间后执行一段代码
-      siteWelcome.classList.remove('active')                          
+    setTimeout(function () { //setTimeout  一段时间后执行一段代码
+      siteWelcome.classList.remove('active')
     }, 1000)
 
-    window.onscroll = function (XXX) {                                //window.onscroll   用户滑动窗口的时候出发一个函数
-      if (window.scrollY > 0) {                                       //window.scrollY    窗口滚动的高度
+    window.onscroll = function (XXX) { //window.onscroll   用户滑动窗口的时候出发一个函数
+      if (window.scrollY > 0) { //window.scrollY    窗口滚动的高度
         topNavBar.classList.add('sticky')
       } else {
         topNavBar.classList.remove('sticky')
       }
+
+      let specialTags = document.querySelectorAll('[data-x]')
+      let minIndex = 0
+      for (let i = 1; i < specialTags.length; i++) {
+        if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {
+          minIndex = i
+        }
+      }
+      //minIndex  就是离窗口顶部最近的元素
+      specialTags[minIndex].classList.add('animate')
+      let id = specialTags[minIndex].id
+      let a = document.querySelector('a[href="#'+ id +'"]')
+      let li = a.parentNode
+      let brothersAndMe = li.parentNode.children
+      for(let i = 0; i<brothersAndMe.length; i++){
+        brothersAndMe[i].classList.remove('highlight')
+      }
+      li.classList.add('highlight')
     }
-    let liTags = document.querySelectorAll('nav.menu > ul > li')       //doucument.querySelectorAll接收一个选择器，返回一个选择包含的所有元素
+    let liTags = document.querySelectorAll('nav.menu > ul > li') //doucument.querySelectorAll接收一个选择器，返回一个选择包含的所有元素
     for (let i = 0; i < liTags.length; i++) {
-      liTags[i].onmouseenter = function (x) {                          //onmouseenter 当鼠标进入一个元素的时候会触发一个函数
+      liTags[i].onmouseenter = function (x) { //onmouseenter 当鼠标进入一个元素的时候会触发一个函数
         x.currentTarget.classList.add('active')
       }
-      liTags[i].onmouseleave = function (x) {                          //onmouseleave 当鼠标离开一个元素的时候会触发一个函数
+      liTags[i].onmouseleave = function (x) { //onmouseleave 当鼠标离开一个元素的时候会触发一个函数
         x.currentTarget.classList.remove('active')
       }
     }
 
     let aTags = document.querySelectorAll('nav.menu > ul > li > a')
-    for(let i=0; i<aTags.length; i++){
-      aTags[i].onclick = function(x){
-        x.preventDefault()                                              //调用后就不会有默认的动作了
+
+    function animate(time) {
+      requestAnimationFrame(animate);
+      TWEEN.update(time);
+    }
+    requestAnimationFrame(animate);
+    for (let i = 0; i < aTags.length; i++) {
+      aTags[i].onclick = function (x) {
+        x.preventDefault() //调用后就不会有默认的动作了
         let a = x.currentTarget
-        let href = a.getAttribute('href')                               //getAttribute  能够获取用户在这个标签上写的原文，而不是浏览器加了Http协议之后的内容
-        let element = document.querySelector(href)                      //querySelector 只会返回第一个元素，不是数组
-        let top =element.offsetTop                                      //offsetTop 获取一个元素距离页面顶部的像素数
-        window.scrollTo(0,top-80)                                       //window.scrollTo  滑动到某个位置，把 0 改为其它值就会有左右方向的滑动，如果只改后面的，会发生上下方面的滑动
-      }                                                                 //                   一般来说只左右滑动
+        let href = a.getAttribute('href') //getAttribute  能够获取用户在这个标签上写的原文，而不是浏览器加了Http协议之后的内容
+        let element = document.querySelector(href) //querySelector 只会返回第一个元素，不是数组
+        let top = element.offsetTop //offsetTop 获取一个元素距离页面顶部的像素数
+        // window.scrollTo(0,top-80)                                       //window.scrollTo  滑动到某个位置，把 0 改为其它值就会有左右方向的滑动，如果只改后面的，会发生上下方面的滑动
+        //一般来说只左右滑动
+        //let n = 25  //一共动多少次
+        // let duration = 500 / n //多长时间动一次
+        let currentTop = window.scrollY //页面当前高度
+        let targetTop = top - 80 //目标高度
+        //let distance = (targetTop - currentTop) /n
+        //let i = 0
+        //console.log(targetTop)
+        //console.log(currentTop)
+        //console.log(n)
+        //console.log(distance)
+        //let id = setInterval(()=> {
+        //  if(i===n){
+        //    window.clearInterval(id)
+        //    return
+        //  }
+        //  i= i+1
+        //  window.scrollTo(0,currentTop + distance*i)
+        //},duration)
+        let s = targetTop - window.scrollY
+        var coords = {
+          y: currentTop
+        }
+        var t = Math.abs((s / 100) * 300)
+        if (t > 500) {
+          t = 500
+        }
+        var tween = new TWEEN.Tween(coords)
+          .to({
+            y: targetTop
+          }, t)
+          .easing(TWEEN.Easing.Quadratic.InOut)
+          .onUpdate(function () {
+            window.scrollTo(0, coords.y)
+          })
+          .start();
+      }
     }
   </script>
 </body>
