@@ -1,0 +1,16 @@
+*{
+    margin:0;padding:9;
+}
+.window{
+    width:400px;
+    height:300px;
+    margin:20px auto;
+    overflow:hidden;
+}
+.images{
+    display:flex;
+    transition: all 0.5s;
+}
+.images > img{
+    width: 100%;
+}
