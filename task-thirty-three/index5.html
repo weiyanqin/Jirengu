@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <h5>您的账户余额是<span id="amount">&&&amount&&&</span></h5>
+  <button id="button">打钱</button>
+  <script src="./jquery-3.3.1.min.js"></script>
+  <script>
+      button.addEventListener('click',function(e){
+       $.ajax({
+           url:"http://jack.com:8002/pay",
+           dataType:"jsonp",
+           success:function(response){
+               if(response === 'success'){
+                   amount.innerText = amount.innerText - 1
+               }
+           }
+           
+       })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //   let script = document.createElement('script')
+        //   let functionName = 'frank'+parseInt(Math.random()*10000,10)
+          
+        //   window[functionName] = function(result){
+        //       if(result === 'success'){
+        //          amount.innerText = amount.innerText - 1 
+        //       }else{
+
+        //       }
+        //   }
+        //   script.src = 'http://localhost:8002/pay?callback=' + functionName
+        //   document.body.appendChild(script)
+        //   script.onload = function(e){
+        //       e.currentTarget.remove()
+        //       delete window[functionName]
+        //   }
+        //   script.onerror = function(e){
+        //       e.currentTarget.remove()
+        //     alert('打钱失败')
+        //     delete window[functionName]
+        //   }
+      })
+  </script>
+</body>
+</html>

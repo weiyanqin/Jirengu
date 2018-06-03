@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <h5>您的账户余额是<span id="amount">&&&amount&&&</span></h5>
+  <button id="button">打钱</button>
+
+  <script>
+      button.addEventListener('click',function(e){
+          let image = document.createElement('img')
+          console.log(image)
+          image.src = '/pay'      //可以发送一个路劲为pay的请求
+          image.onload =function(){
+              alert('打钱成功')
+              amount.innerText = amount.innerText - 1
+          }
+          image.onerror = function(){
+              alert('打钱失败')
+          }
+      })
+  </script>
+</body>
+</html>
