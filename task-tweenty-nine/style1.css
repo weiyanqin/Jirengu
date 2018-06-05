@@ -1,0 +1,25 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+#images {
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.5s;
+    /* border: 2px solid red; */
+}
+
+#window {
+    /* border: 5px solid green; */
+    width: 400px;
+    /* height: 300px; */
+    overflow: hidden;
+    margin: 0 auto;
+}
+#buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 20px auto;
+}
+
