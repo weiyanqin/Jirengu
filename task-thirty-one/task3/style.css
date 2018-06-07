@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 200px auto;
+    width: 400px;
+    height: 200px;
+    border: 1px solid green;
+    border-radius: 25px;
+    box-shadow: 10px 10px 10px #8888;
+    background-color: #888;
+    
+}
