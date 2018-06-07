@@ -1,13 +1,3 @@
-// $(clickMe).on('click', function () {
-//     $(popover).show()
-//     console.log(1)
-//     setTimeout(function () {
-//         $(clickMe).one('click', function () {
-//             $(popover).hide()
-//             console.log(2)
-//         })
-//     }, 0)
-// })
 
 var n = 0
 
