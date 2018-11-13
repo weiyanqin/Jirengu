@@ -3,66 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,
+    minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #canvas {
-            background: red;
-            height: 100vh;
-            <!-- position: relative; -->
-        }
-    </style>
+    <title>drawing board</title>
+    <link rel="stylesheet" href="./style.css">
+   
 </head>
 
 <body>
-    <div id="canvas">
-
+    <canvas id="xxx" width="300px" height="300px"></canvas>
+    <div id="actions" class="actions">
+        <button id="eraser">橡皮擦</button>
+        <button id="brush">画笔</button>
     </div>
+    <script type="text/javascript" src="./main.js"></script>
 
-
-
-
-
-    <script>
-        var div = document.getElementById('canvas') //通过这个ID,获取div
-        var painting = false
-        //按下鼠标
-        div.onmousedown = function (a) {
-            painting = true
-            var x = a.clientX
-            var y = a.clientY
-            var divA = document.createElement('div')
-            divA.style = "width: 6px; height: 6px; background: black; border-radius: 3px;" +
-                "position: absolute; left: " + (x - 3) + "px;" + "top: " + (y - 3) + "px;" //???????????
-            div.appendChild(divA)
-            console.log()
-        }
-
-        //动鼠标
-        div.onmousemove = function (a) {
-            if (painting) {
-                var x = a.clientX
-                var y = a.clientY
-                var divA = document.createElement('div')
-                divA.style = "width: 6px; height: 6px; background: black; border-radius: 3px;" +
-                    "position: absolute; left: " + (x - 3) + "px;" + "top: " + (y - 3) + "px;" //???????????
-                div.appendChild(divA)
-            } else {
-
-            }
-        //松开鼠标
-        div.onmouseup = function(a){
-            painting = false;
-        }
-
-        }
-    </script>
 </body>
 
 </html>
