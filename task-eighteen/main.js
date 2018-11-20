@@ -1,6 +1,6 @@
-var canvas = document.getElementById('xxx');
+var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var lineWidth = 5
+var lineWidth = 10
 
 autoSetCanvasSize(canvas)
 
