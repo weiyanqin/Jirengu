@@ -8,31 +8,28 @@ ul, ol { list-style: none; }
 
 #canvas {
 	display: block;
-	background: white;
-	position: fixed;
+	/* background: white; */
+	/* position: fixed;
 	top: 0;
-	left: 0;
+	left: 0; */
 }
 
 .tools{ 
 	display: flex; 
-	border: 1px solid red;
-	flex-direction: column;
-}
-
-.tools .property{
-	border: 1px solid #aaa;
+	border: 1px solid #BBB;
 	border-radius: 5px;
-	background-color: #eee;
-	margin: 10px;
 	width: 80px;
+	flex-direction: column;
+	background-color: #eee;
 	position: fixed;
 	top: 0;
 	left: 0;
+}
+
+.tools .property{
 	display: flex;
 	justify-content: space-between;
 }
-
 
  .tools .property .colors>li {
 	width: 25px;
@@ -78,6 +75,14 @@ ul, ol { list-style: none; }
 	width: 25px;
 	height: 25px;
 }
+.tools .property .sizes>li:hover {
+	border: 2px solid black;
+	transform: scale(1.2);
+}
+.tools .property .sizes>li.active {
+	border: 2px solid black;
+	transform: scale(1.2);
+}
 .tools .property .sizes>.thinnest>div{
 	height: 17px;
 	border-right: 1px solid black;
@@ -103,33 +108,31 @@ ul, ol { list-style: none; }
 	border-right: 8px solid black;
 }
 
-.tools .actions {
-	border: 10px solid red;
-	height: 400px;
-	width: 400px;
-}
-
 .tools .actions svg {
-	width: 1.5em;
-	height: 1.5em;
+	border: 2px solid #eee;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+	width: 25px;
+	height: 25px;
 	transition: all 0.3s;
-	margin: 0 10px;
-}
-.tools .actions .icon {
-	width: 1em;
-	height: 1em;
-	vertical-align: -0.15em;
-	overflow: hidden;
 	stroke: red;
+	display: block;
+	float: left;
+	padding: 2px;
+	margin-bottom: 10px
+}
+#eraser,#download{
+	margin-left: 16px;
+}
+#pen,#clear{
+	margin-left: 7px;
+}
+.actions svg.active {
+	fill: red;
+	border: 2px solid black;
+	transform: scale(1.2);
 }
 
-/* .actions svg.active {
-	fill: red;
+.actions svg:hover {
+	border: 2px solid black;
 	transform: scale(1.2);
-} */
-
-/* .actions svg:nth-child(3):hover,
-.actions svg:nth-child(4):hover {
-	fill: red;
-	transform: scale(1.2);
-} */
+}
