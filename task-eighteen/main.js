@@ -27,6 +27,8 @@ black.onclick = function() {
   green.classList.remove('active')
   green.classList.remove('active')
   blue.classList.remove('active')
+  yellow.classList.remove('active')
+  purple.classList.remove('active')
 }
 
 red.onclick = function() {
@@ -36,6 +38,8 @@ red.onclick = function() {
   black.classList.remove('active')
   green.classList.remove('active')
   blue.classList.remove('active')
+  yellow.classList.remove('active')
+  purple.classList.remove('active')
 }
 
 green.onclick = function() {
@@ -45,6 +49,8 @@ green.onclick = function() {
   black.classList.remove('active')
   red.classList.remove('active')
   blue.classList.remove('active')
+  yellow.classList.remove('active')
+  purple.classList.remove('active')
 }
 blue.onclick = function() {
   context.fillStyle = 'blue'
@@ -53,12 +59,46 @@ blue.onclick = function() {
   black.classList.remove('active')
   red.classList.remove('active')
   green.classList.remove('active')
+  yellow.classList.remove('active')
+  purple.classList.remove('active')
 }
-thin.onclick = function() {
+yellow.onclick = function() {
+  context.fillStyle = 'yellow'
+  context.strokeStyle = 'yellow'
+  yellow.classList.add('active')
+  black.classList.remove('active')
+  red.classList.remove('active')
+  green.classList.remove('active')
+  purple.classList.remove('active')
+  blue.classList.remove('active')
+}
+purple.onclick = function() {
+  context.fillStyle = 'purple'
+  context.strokeStyle = 'purple'
+  purple.classList.add('active')
+  black.classList.remove('active')
+  red.classList.remove('active')
+  green.classList.remove('active')
+  yellow.classList.remove('active')
+  blue.classList.remove('active')
+}
+thinnest.onclick = function() {
   lineWidth = 1 
 }
+thinner.onclick = function() {
+  lineWidth = 2 
+}
+thin.onclick = function() {
+  lineWidth = 3 
+}
+normal.onclick = function() {
+  lineWidth = 4 
+}
 thick.onclick = function() {
-  lineWidth = 10
+  lineWidth = 5
+}
+thicker.onclick = function() {
+  lineWidth = 8
 }
 clear.onclick = function() {
   context.clearRect(0, 0, canvas.width, canvas.height)
