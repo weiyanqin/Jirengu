@@ -14,18 +14,24 @@
 <body>
     <canvas id="canvas" width="300px" height="300px"></canvas>
     <div class="tools" id="tools">
-        <ol class="colors clearfix">
-            <li id="black" class="black"></li>
-            <li id="red" class="red"></li>
-            <li id="green" class="green"></li>
-            <li id="blue" class="blue"></li>
-            <li id="yellow" class="yellow"></li>
-            <li id="purple" class="purple"></li>
-        </ol>
-        <ol class="sizes">
-            <li id="thin" class="thin"></li>
-            <li id="thick" class="thick"></li>
-        </ol>
+        <div class="property" id="property">
+            <ol class="colors">
+                <li id="black" class="black"></li>
+                <li id="red" class="red"></li>
+                <li id="green" class="green"></li>
+                <li id="blue" class="blue"></li>
+                <li id="yellow" class="yellow"></li>
+                <li id="purple" class="purple"></li>
+            </ol>
+            <ol class="sizes">
+                <li id="thin" class="thin">
+                    <div></div>
+                </li>
+                <li id="thick" class="thick">
+                    <div></div>
+                </li>
+            </ol>
+        </div>
         <div id="actions" class="actions">
             <svg id="pen" class="icon">
                 <use xlink:href="#icon-pen"></use>
@@ -40,7 +46,6 @@
                 <use xlink:href="#icon-save"></use>
             </svg>
         </div>
-
     </div>
     <script type="text/javascript" src="./main.js"></script>
     <script type="text/javascript" src="//at.alicdn.com/t/font_593257_xbc6oiihp12d42t9.js"></script>

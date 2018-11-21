@@ -4,24 +4,20 @@
 	box-sizing: border-box;
 }
 
-ul, ol {
+ul,
+ol {
 	list-style: none;
 }
 
-.clearfix::after {
-	content: '';
-	display: block;
-	clear: both;
-}
 
-.icon {
+
+/* .icon {
 	width: 1em;
 	height: 1em;
 	vertical-align: -0.15em;
-	/*fill: currentColor;*/
 	overflow: hidden;
 	stroke: red;
-}
+} */
 
 #canvas {
 	display: block;
@@ -34,8 +30,10 @@ ul, ol {
 /* body {
 	overflow: hidden;
 } */
-
-.tools {
+.tools{
+	display: flex;
+}
+.tools .property{
 	border: 1px solid #aaa;
 	border-radius: 5px;
 	background-color: #eee;
@@ -45,15 +43,17 @@ ul, ol {
 	position: fixed;
 	top: 0;
 	left: 0;
-	/* padding: 10px; */
 	display: flex;
+	justify-content: space-between;
 }
 
-.tools .colors{
+.tools .property .colors {
 	border: 1px solid red;
 	height: 270px;
+	/* flex-grow: 1; */
 }
-.colors>li {
+
+ .tools .property .colors>li {
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
@@ -61,31 +61,56 @@ ul, ol {
 	border: 2px solid #eee;
 	margin: 10px 5px;
 	transition: all 0.3s;
-	float: left;
 }
-.colors>li.black {
+
+.tools .property .colors>li.black {
 	background: black;
 }
-.colors>li.red {
+.tools .property .colors>li.red {
 	background: red;
 }
-.colors>li.green {
+.tools .property .colors>li.green {
 	background: green;
 }
-.colors>li.blue {
+.tools .property .colors>li.blue {
 	background: blue;
 }
-.colors>li.yellow {
+.tools .property .colors>li.yellow {
 	background: yellow;
 }
-.colors>li.purple {
+.tools .property .colors>li.purple {
 	background: purple;
 }
-.colors>li.active {
+.tools .property .colors>li.active {
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
 	transform: scale(1.2);
+}
+
+.tools .property .sizes {
+	border: 1px solid red;
+}
+
+.tools .property .sizes>li {
+	border: 2px solid red;
+	margin: 10px 5px;
+	width: 25px;
+	height: 25px;
+}
+
+.sizes>.thin>div{
+	height: 20px;
+	border-right: 3px solid black;
 
 }
+.sizes>.thick>div{
+	height: 20px;
+	border-right: 6px solid black;
+}
+
+.actions {
+	border: 1px solid red;
+}
+
 .actions svg {
 	width: 1.5em;
 	height: 1.5em;
@@ -102,34 +127,4 @@ ul, ol {
 .actions svg:nth-child(4):hover {
 	fill: red;
 	transform: scale(1.2);
-}
-
-/* .colors {
-	position: fixed;
-	top: 60px;
-	left: 28px;
-} */
-
-
-
-.sizes {
-	position: fixed;
-	left: 177px;
-	top: 49px;
-}
-
-.sizes>li {
-	margin: 20px 0;
-}
-
-.sizes>.thin {
-	height: 0;
-	width: 20px;
-	border-top: 3px solid black;
-}
-
-.sizes>.thick {
-	height: 0;
-	width: 20px;
-	border-top: 6px solid black;
 }
