@@ -12,7 +12,7 @@ ul,ol {list-style: none;}
 	overflow: hidden;
   stroke: red;
 }
-#xxx {
+#canvas {
 	display: block;
   background: white;
   position: fixed;

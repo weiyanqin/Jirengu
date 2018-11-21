@@ -1,6 +1,7 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
-var lineWidth = 10
+
+var lineWidth = 3 
 
 autoSetCanvasSize(canvas)
 
@@ -11,8 +12,8 @@ pen.onclick = function() {
   eraserEnabled = false
   pen.classList.add('active')
   eraser.classList.remove('active')
-
 }
+
 eraser.onclick = function() {
   eraserEnabled = true
   eraser.classList.add('active')
@@ -27,6 +28,7 @@ black.onclick = function() {
   green.classList.remove('active')
   blue.classList.remove('active')
 }
+
 red.onclick = function() {
   context.fillStyle = 'red'
   context.strokeStyle = 'red'
@@ -35,6 +37,7 @@ red.onclick = function() {
   green.classList.remove('active')
   blue.classList.remove('active')
 }
+
 green.onclick = function() {
   context.fillStyle = 'green'
   context.strokeStyle = 'green'
@@ -52,7 +55,7 @@ blue.onclick = function() {
   green.classList.remove('active')
 }
 thin.onclick = function() {
-  lineWidth = 5
+  lineWidth = 1 
 }
 thick.onclick = function() {
   lineWidth = 10
@@ -60,13 +63,17 @@ thick.onclick = function() {
 clear.onclick = function() {
   context.clearRect(0, 0, canvas.width, canvas.height)
 }
+
 download.onclick = function() {
   var url = canvas.toDataURL('image/png')
-  console.log(url)
   var a = document.createElement('a')
-  a.href = url
-  a.download = '我的画儿'
-  a.target = '_blank'
+  console.log(a)
+  // a.href = url
+  a.setAttribute('href',url)
+  // a.download = '我的画儿'
+  a.setAttribute('download','picture')
+  // a.target = '_blank'
+  a.setAttribute('target','_blank')
   a.click()
 }
 
@@ -90,11 +97,12 @@ function autoSetCanvasSize(canvas) {
 function listenToUser(canvas) {
   var using = false
   var lastPoint = {
-      x: undefined,
-      y: undefined
+      x: null,
+      y: null 
     }
     // 特性检测
   if (document.body.ontouchstart !== undefined) {
+    console.log(document.body.ontouchstart)
     // 触屏设备
     canvas.ontouchstart = function(aaa) {
       var x = aaa.touches[0].clientX
@@ -134,7 +142,6 @@ function listenToUser(canvas) {
     canvas.onmousedown = function(a) {
       var x = a.clientX
       var y = a.clientY
-      console.log(x, y)
       using = true
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10) //正方形以左上角为坐标
