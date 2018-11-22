@@ -1,78 +1,107 @@
-*{
-    margin: 0; padding: 0;
-}
-a{
-    text-decoration: none;
-}
-kbd{
-    border: 1px solid red;
-    display: inline-block;
-    width: 4em; height: 4em;
-    text-transform: uppercase;
-    position: relative; 
-}
-kbd > button{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: none;
-}
-kbd:hover > button{
-    display: inline-block;
+*{	
+	margin: 0;
+	padding: 0;
 }
 body{
-    background: url(./img/wall.jpg) no-repeat center center;
-    background-size: cover;    /*  使图片自适应  */
+	padding: 150px 0;
+	background: #DDDEE0;
 }
-main{
-    text-align: center;
-    display: flex;            
-    justify-content: center; 
-    align-items:center;       
-    height: 100vh;
+form{
+	padding-bottom: 50px;
+	text-align: center;
 }
-#main{
-    display: inline-block;
+input{
+	display: inline-block;
+	width: 300px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	border: none;
+	border-bottom: 3px solid #050505;
+	box-sizing: border-box;
+	background: transparent;
 }
-#main > div:nth-child(2){
-    margin-left: -22px;
+input:focus{
+	outline: none;
 }
-#main > div:nth-child(3){
-    margin-left: -88px;
+form a{
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	font-size: 18px;
+	font-family: "Microsoft YaHei", "微软雅黑";
+	text-decoration: none;
+	border-radius: 8px;
+	background: #050505;
 }
-.wrapper{
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
+form .baidu{
+	margin: 0 10px;
 }
-.key{
-    width: 50px; height: 40px;
-    background: linear-gradient(to bottom, #292929,#111111 100%);
-    border: 1px solid #373737;
-    color: #C5C5C5;
-    border-radius: 6px;
-    box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
-    /* display: inline-flex;
-    align-items: center;
-    justify-content: center; */
-    position: relative;
-    font-size: 16px;
-    font-family: Helvetica;
+form a:hover{
+	cursor: pointer;
 }
-.row{
-    margin: 20px;
+div{
+	margin: 0 auto;
+	width: 850px;
+	text-align: center;
 }
-.row .key{
-    margin: 0px 10px;
+kbd{
+	display: inline-block;
+	margin: 6px;
+	width: 71px;
+	height: 69px;
+	color: #fff;
+	font-size: 20px;
+	line-height: 69px;
+	font-weight: 600;
+	font-family: Georgia;
+	background: #050505;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+	text-transform: uppercase;
+	transition: all .2s linear;
 }
-.key img{
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    left: 4px;
-    bottom: 2px;
+kbd:hover{
+	cursor: pointer;
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+	transform: translate3d(0, 0, 0);
+	backface-visibility: hidden;
+	perspective: 1000px;
 }
-.key .text{
-    position: absolute;
-    left: 4px;
-    top: 2px;
+.description{
+	margin: 50px auto;
+	width: 300px;
+	color: #444;
+	font-size: 14px;
+	font-family: "Microsoft YaHei", "微软雅黑";
+}
+.description span{
+	font-weight: bold;
+	color: #222;
+}
+.copyright{
+	color: #222;
+	font-size: 15px;
+	text-align: center;
+	font-family: "Microsoft YaHei", "微软雅黑";
+}
+.copyright a{
+	color: #000;
+	text-decoration: underline;
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
