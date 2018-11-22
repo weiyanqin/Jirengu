@@ -32,44 +32,47 @@ var links = [
         m:'material-ui.com'
     }
 ];
-var rows_keys = new Array();
-var rows_values = new Array();
+
+var rows_keys = new Array()
+var rows_values = new Array()
 for (var i = 0; i < links.length; i++) {
     rows_keys[i] = Object.keys(links[i]);
     rows_values[i] = Object.values(links[i]);
-};
-createSearchBar();
-createInputEvent();
-createSearchEvent();
+}
+
+createSearchBar()
+createInputEvent()
+createSearchEvent()
 for (var i = 0; i < 3; i++) {
-    createKeyBoard(rows_keys[i],rows_values[i]);
+    createKeyBoard(rows_keys[i],rows_values[i])
 };
-addKeyPressEvent();
-createDescription();
-copyRight();
+
+addKeyPressEvent()
+createDescription()
+copyRight()
 function createSearchBar(){
-    var body = document.querySelector("body");
-    var form = document.createElement("form");
-    var input = document.createElement("input");
-    var baidu = document.createElement("a");
-    var google = document.createElement("a");
-    input.setAttribute("type","text");
-    input.setAttribute("spellcheck","false");
-    input.setAttribute("placeholder","Search");
-    baidu.setAttribute("class","baidu");
-    google.setAttribute("class","google");
-    baidu.textContent = "百度";
-    google.textContent = "谷歌";
-    body.appendChild(form);
-    form.appendChild(input);
-    form.appendChild(baidu);
-    form.appendChild(google);
+    var body = document.querySelector("body")
+    var form = document.createElement("form")
+    var input = document.createElement("input")
+    var baidu = document.createElement("a")
+    var google = document.createElement("a")
+    input.setAttribute("type","text")
+    input.setAttribute("spellcheck","false")
+    input.setAttribute("placeholder","Search")
+    baidu.setAttribute("class","baidu")
+    google.setAttribute("class","google")
+    baidu.innerText = "百度"
+    google.textContent = "谷歌"
+    body.appendChild(form)
+    form.appendChild(input)
+    form.appendChild(baidu)
+    form.appendChild(google)
 }
 function createInputEvent(){
     var body = document.querySelector("body");
     var input = document.querySelector("input");
     body.onclick = function (evt){
-        evt.target.localName == "input" ? input.setAttribute("autofocus","autofocus"): input.removeAttribute("autofocus");
+        evt.target.localName === "input" ? input.setAttribute("autofocus","autofocus"): input.removeAttribute("autofocus");
     }
 }
 function createSearchEvent(){
@@ -116,7 +119,8 @@ function addKeyPressEvent(){
                 if (!evt.altKey) {
                     var kbds = document.querySelectorAll("kbd");
                     for (var i = 0; i < kbds.length; i++) {
-                        if (evt.code.lastIndexOf(kbds[i].innerText) == 3) {
+                        if (evt.code.lastIndexOf(kbds[i].innerText) === 3) {
+                            console.log(evt.code)
                             window.open("//" + kbds[i].getAttribute("title"),"_blank");
                         }
                     }
@@ -150,7 +154,8 @@ function deleteKeyBoard(){
     var letter = prompt("你想重置哪个字母的导航？");
     if (letter) {
         var result = letter.match(/[a-zA-Z]/g);
-        if ( letter && result && result.length == 1) {
+        console.log(result)
+        if ( letter && result && result.length === 1) {
             alert("重置成功！");
             var letter_uppercase = letter.toUpperCase();
             for (let i = 0; i < rows_keys.length; i++) {
@@ -183,6 +188,6 @@ function copyRight(){
     var body = document.querySelector("body");
     var p = document.createElement("p");
     p.setAttribute("class","copyright");
-    p.innerHTML = "Copyright&nbsp;&copy;&nbsp;2014-2017&nbsp;戴江涛&nbsp;<a href='http://www.captaininphw.xyz' target='_blank'>captaininphw.xyz</a>&nbsp;版权所有";
+    p.innerHTML = "Copyright&nbsp;&copy;&nbsp;2017-2018&nbsp;王海铭&nbsp版权所有";
     body.appendChild(p);
 }
