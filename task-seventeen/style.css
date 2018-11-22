@@ -5,6 +5,7 @@
 body{
 	padding: 150px 0;
 	background: #DDDEE0;
+	overflow: hidden;
 }
 form{
 	padding-bottom: 50px;
@@ -63,6 +64,7 @@ kbd{
 	text-transform: uppercase;
 	transition: all .2s linear;
 }
+
 kbd:hover{
 	cursor: pointer;
 	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -71,7 +73,8 @@ kbd:hover{
 	perspective: 1000px;
 }
 .description{
-	margin: 50px auto;
+	margin: 40px auto;
+	margin-bottom: 10px;
 	width: 300px;
 	color: #444;
 	font-size: 14px;
@@ -82,9 +85,10 @@ kbd:hover{
 	color: #222;
 }
 .copyright{
+	/* border: 1px solid red; */
 	color: #222;
 	font-size: 15px;
-	text-align: center;
+	padding-left: 545px;
 	font-family: "Microsoft YaHei", "微软雅黑";
 }
 .copyright a{
@@ -105,9 +109,3 @@ kbd:hover{
     transform: translate3d(4px, 0, 0);
   }
 }
-.icon {
-    width: 1em; height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
- }

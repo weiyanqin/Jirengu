@@ -46,7 +46,7 @@ createSearchEvent()
 for (var i = 0; i < 3; i++) {
     createKeyBoard(rows_keys[i],rows_values[i])
 };
-
+xxx()
 addKeyPressEvent()
 createDescription()
 copyRight()
@@ -97,14 +97,21 @@ function createKeyBoard(arr1,arr2){
     body.appendChild(div);
     for (let i = 0; i < arr1.length; i++) {
         var kbd = document.createElement('kbd');
+        var img = document.createElement('img')
         kbd.setAttribute("title", arr2[i]);
         kbd.textContent = arr1[i];
+        // img.setAttribute('src',"https://" + kbd.title + "/favicon.ico")
         div.appendChild(kbd);
+        kbd.appendChild(img)
         kbd.onclick = function (evt){
             window.open("//" + evt.target.getAttribute("title"),"_blank");
         };
     }
-};
+}
+function xxx(){
+    var svg = document.querySelectorAll('svg')
+    console.log(svg)
+}
 function addKeyPressEvent(){
     window.onkeydown = function(evt){
         var input = document.querySelector("input");
