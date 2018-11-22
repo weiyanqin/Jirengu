@@ -21,7 +21,7 @@ kbd:hover > button{
     display: inline-block;
 }
 body{
-    background: url(./wall.jpg) no-repeat center center;
+    background: url(./img/wall.jpg) no-repeat center center;
     background-size: cover;    /*  使图片自适应  */
 }
 main{
